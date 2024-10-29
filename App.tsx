@@ -26,6 +26,8 @@ import Login from './android/Screens/Login';
 import {LoadingProvider} from './android/Utils/loader';
 import Toast from 'react-native-root-toast';
 import Dashboard from './android/Screens/Dashboard';
+import ProductList from './android/Screens/ProductList';
+import Profile from './android/Screens/Profile';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -42,7 +44,7 @@ function App(): React.JSX.Element {
       />
       <QueryClientProvider client={queryClient}>
         <LoadingProvider>
-          <Dashboard backgroundStyle={backgroundStyle} />
+          <Profile backgroundStyle={backgroundStyle} />
         </LoadingProvider>
       </QueryClientProvider>
     </SafeAreaView>

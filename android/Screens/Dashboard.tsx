@@ -77,7 +77,7 @@ function Dashboard(backgroundStyle: any): React.JSX.Element {
           <View style={styles.INTESREDCard}>
             <Image
               source={{
-                uri: 'https://www.shutterstock.com/image-photo/gateway-india-mumbai-maharashtra-monument-260nw-1936201141.jpg',
+                uri: 'https://th.bing.com/th/id/OIG4.hb6x6NsHBTvbDGaD13Ua',
               }}
               resizeMode="cover" // Use 'contain' or 'stretch' as needed
               style={styles.INTESREDCardImage}
