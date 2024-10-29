@@ -18,7 +18,7 @@ import {
   Image,
   FlatList,
 } from 'react-native';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 function Profile(backgroundStyle: any): React.JSX.Element {
   return (
     <View style={styles.mainCard}>
@@ -30,11 +30,54 @@ function Profile(backgroundStyle: any): React.JSX.Element {
           style={styles.profileimage}
         />
       </View>
-      <View style={styles.profileDetailsConainter}>
+      <View>
         <View style={styles.buttonContainer}>
-          <View style={styles.ratingButtonContainer}></View>
-          <View style={styles.likeButtonContainer}></View>
-          <View style={styles.blockButtonContainer}></View>
+          <View style={[styles.ratingButtonContainer, styles.shadowbox]}>
+            <Icon name="star" size={30} color="#3498db" />
+          </View>
+          <View style={[styles.likeButtonContainer, styles.shadowbox]}>
+            <Icon name="heart" size={30} color="#fff" />
+          </View>
+          <View style={[styles.blockButtonContainer, styles.shadowbox]}>
+            <Icon name="close" size={30} color="#e67e22" />
+          </View>
+        </View>
+      </View>
+      <View style={styles.profileDetailConainter}>
+        <View style={styles.nameAgeConainter}>
+          <Text style={styles.nameAgeText}>Tanya Singh,25</Text>
+        </View>
+        <Text style={styles.languageText}>Hindi . Punjabi . English</Text>
+
+        <View style={styles.locationBoxConainter}>
+          <View style={styles.locationConainter}>
+            <Text style={styles.locationHeadingText}>Location</Text>
+            <Text style={styles.locationnameText}>Brivai,Mumbai</Text>
+          </View>
+
+          <View style={styles.locationDistanceConainter}>
+            <View style={styles.locationIcon}>
+              <Icon name="map-marker" size={20} color="#fff" />
+            </View>
+
+            <Text style={styles.distanceText}>1 Km</Text>
+          </View>
+        </View>
+
+        <View style={styles.aboutBoxContainer}>
+          <Text style={styles.aboutHeading}>About</Text>
+
+          <Text style={styles.aboutText}>
+            Hi, I'm [Your Name]. I have a background in [Your Field, e.g.,
+            software engineering, marketing, etc.] and specialize in [your
+            skills, e.g., mobile app development, data analysis, etc.]. Over the
+            past [X years], I've worked on [mention any relevant projects,
+            achievements, or experience]. I’m particularly passionate about
+            [specific area, e.g., creating intuitive user interfaces, finding
+            insights from data, building scalable backend systems, etc.].
+            Outside of work, I enjoy [mention hobbies or interests, e.g.,
+            hiking, reading, learning new tech, etc.].
+          </Text>
         </View>
       </View>
     </View>
@@ -42,6 +85,13 @@ function Profile(backgroundStyle: any): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
+  shadowbox: {
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+  },
   contentContainer: {
     backgroundColor: '#fff',
   },
@@ -52,11 +102,89 @@ const styles = StyleSheet.create({
     height: undefined,
     aspectRatio: 1,
   },
-  profileDetailsConainter: {},
-  buttonContainer: {},
-  ratingButtonContainer: {},
-  likeButtonContainer: {},
-  blockButtonContainer: {},
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    width: '100%',
+    position: 'absolute',
+    marginTop: -80,
+    zIndex: 9,
+  },
+  ratingButtonContainer: {
+    width: 70,
+    height: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    borderRadius: '50%',
+  },
+  likeButtonContainer: {
+    width: 90,
+    height: 90,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#e74c3c',
+    borderRadius: '50%',
+  },
+  blockButtonContainer: {
+    width: 70,
+    height: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    borderRadius: '50%',
+  },
+  profileDetailConainter: {
+    backgroundColor: '#fff',
+    borderTopLeftRadius: '10%',
+    borderTopRightRadius: '10%',
+    padding: 20,
+    marginTop: -40,
+  },
+  nameAgeConainter: {
+    marginTop: 50,
+  },
+  nameAgeText: {
+    fontSize: 20,
+  },
+  languageText: {
+    fontSize: 15,
+    fontWeight: 500,
+  },
+  locationBoxConainter: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  locationConainter: {},
+  locationHeadingText: {fontSize: 22},
+  locationnameText: {fontSize: 14},
+  locationDistanceConainter: {
+    backgroundColor: 'rgba(255, 0, 0, 0.6)',
+    opacity: 0.9,
+    flexDirection: 'row',
+    gap: 3,
+    padding: 7,
+    borderRadius: '15%',
+  },
+  locationIcon: {},
+  distanceText: {
+    color: '#fff',
+  },
+  aboutBoxContainer: {},
+  aboutHeading: {
+    fontSize: 20,
+    fontWeight: 700,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  aboutText: {
+    fontSize: 15,
+    lineHeight: 23,
+  },
 });
 
 export default Profile;
