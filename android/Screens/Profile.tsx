@@ -57,7 +57,7 @@ function Profile(backgroundStyle: any): React.JSX.Element {
 
           <View style={styles.locationDistanceConainter}>
             <View style={styles.locationIcon}>
-              <Icon name="map-marker" size={20} color="#fff" />
+              <Icon name="map-marker" size={20} color="" />
             </View>
 
             <Text style={styles.distanceText}>1 Km</Text>
@@ -66,18 +66,19 @@ function Profile(backgroundStyle: any): React.JSX.Element {
 
         <View style={styles.aboutBoxContainer}>
           <Text style={styles.aboutHeading}>About</Text>
-
-          <Text style={styles.aboutText}>
-            Hi, I'm [Your Name]. I have a background in [Your Field, e.g.,
-            software engineering, marketing, etc.] and specialize in [your
-            skills, e.g., mobile app development, data analysis, etc.]. Over the
-            past [X years], I've worked on [mention any relevant projects,
-            achievements, or experience]. I’m particularly passionate about
-            [specific area, e.g., creating intuitive user interfaces, finding
-            insights from data, building scalable backend systems, etc.].
-            Outside of work, I enjoy [mention hobbies or interests, e.g.,
-            hiking, reading, learning new tech, etc.].
-          </Text>
+          <ScrollView style={styles.scrollContainer}>
+            <Text style={styles.aboutText}>
+              Hi, I'm Nisha singh. I have a background in software engineering
+              and specialize in [your skills, e.g., mobile app development, data
+              analysis, etc.]. Over the past [X years], I've worked on [mention
+              any relevant projects, achievements, or experience]. I’m
+              particularly passionate about [specific area, e.g., creating
+              intuitive user interfaces, finding insights from data, building
+              scalable backend systems, etc.]. Outside of work, I enjoy [mention
+              hobbies or interests, e.g., hiking, reading, learning new tech,
+              etc.].
+            </Text>
+          </ScrollView>
         </View>
       </View>
     </View>
@@ -158,23 +159,36 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginTop: 20,
   },
-  locationConainter: {},
-  locationHeadingText: {fontSize: 22},
-  locationnameText: {fontSize: 14},
+  locationConainter: {
+    width: 100,
+    height: 50,
+  },
+  locationHeadingText: {
+    fontSize: 20,
+  },
+  locationnameText: {
+    fontSize: 13,
+  },
   locationDistanceConainter: {
-    backgroundColor: 'rgba(255, 0, 0, 0.6)',
+    backgroundColor: 'rgba(255, 0, 0, 0.5)',
     opacity: 0.9,
     flexDirection: 'row',
-    gap: 3,
     padding: 7,
-    borderRadius: '15%',
+    borderRadius: '10%',
   },
-  locationIcon: {},
+  locationIcon: {
+    width: 20,
+  },
   distanceText: {
+    width: 50,
     color: '#fff',
   },
   aboutBoxContainer: {},
+  scrollContainer: {
+    maxHeight: 150, // adjust height as needed
+  },
   aboutHeading: {
     fontSize: 20,
     fontWeight: 700,
