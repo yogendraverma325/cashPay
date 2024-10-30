@@ -19,7 +19,7 @@ import {
   FlatList,
 } from 'react-native';
 
-function ProductList(backgroundStyle: any): React.JSX.Element {
+function ProductList({navigation}): React.JSX.Element {
   const imageData = [
     {
       profile:
@@ -106,7 +106,11 @@ function ProductList(backgroundStyle: any): React.JSX.Element {
           </View>
         </View>
         <View style={styles.viewdetailsButtonSection}>
-          <Text style={styles.viewButtonText}>View</Text>
+          <Text
+            style={styles.viewButtonText}
+            onPress={() => navigation.navigate('Profile')}>
+            View
+          </Text>
         </View>
       </View>
       <View style={styles.bottomContainer}>

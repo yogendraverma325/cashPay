@@ -28,7 +28,9 @@ import Toast from 'react-native-root-toast';
 import Dashboard from './android/Screens/Dashboard';
 import ProductList from './android/Screens/ProductList';
 import Profile from './android/Screens/Profile';
-
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -44,7 +46,31 @@ function App(): React.JSX.Element {
       />
       <QueryClientProvider client={queryClient}>
         <LoadingProvider>
-          <Profile backgroundStyle={backgroundStyle} />
+          <NavigationContainer>
+            <Stack.Navigator initialRouteName="Login">
+              <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="Dashboard"
+                component={Dashboard}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="ProductList"
+                component={ProductList}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="Profile"
+                component={Profile}
+                options={{headerShown: false}}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+          <Toast />
         </LoadingProvider>
       </QueryClientProvider>
     </SafeAreaView>

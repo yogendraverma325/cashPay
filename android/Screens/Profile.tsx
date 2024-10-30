@@ -19,7 +19,7 @@ import {
   FlatList,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-function Profile(backgroundStyle: any): React.JSX.Element {
+function Profile({navigation}): React.JSX.Element {
   return (
     <View style={styles.mainCard}>
       <View style={styles.imageContainer}>
@@ -33,7 +33,12 @@ function Profile(backgroundStyle: any): React.JSX.Element {
       <View>
         <View style={styles.buttonContainer}>
           <View style={[styles.ratingButtonContainer, styles.shadowbox]}>
-            <Icon name="star" size={30} color="#3498db" />
+            <Icon
+              name="star"
+              size={30}
+              color="#3498db"
+              onPress={() => navigation.navigate('Dashboard')}
+            />
           </View>
           <View style={[styles.likeButtonContainer, styles.shadowbox]}>
             <Icon name="heart" size={30} color="#fff" />
@@ -57,7 +62,7 @@ function Profile(backgroundStyle: any): React.JSX.Element {
 
           <View style={styles.locationDistanceConainter}>
             <View style={styles.locationIcon}>
-              <Icon name="map-marker" size={20} color="" />
+              <Icon name="map-marker" size={20} color={'#fff'} />
             </View>
 
             <Text style={styles.distanceText}>1 Km</Text>
@@ -155,14 +160,13 @@ const styles = StyleSheet.create({
     fontWeight: 500,
   },
   locationBoxConainter: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 20,
+    marginBottom: 10,
   },
   locationConainter: {
-    width: 100,
     height: 50,
   },
   locationHeadingText: {
@@ -172,18 +176,19 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   locationDistanceConainter: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: 'rgba(255, 0, 0, 0.5)',
     opacity: 0.9,
-    flexDirection: 'row',
     padding: 7,
     borderRadius: '10%',
   },
   locationIcon: {
-    width: 20,
+    width: 15,
   },
   distanceText: {
-    width: 50,
     color: '#fff',
+    width: 40,
   },
   aboutBoxContainer: {},
   scrollContainer: {

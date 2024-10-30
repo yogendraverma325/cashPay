@@ -18,7 +18,7 @@ import {
   Image,
 } from 'react-native';
 
-function Dashboard(backgroundStyle: any): React.JSX.Element {
+function Dashboard({navigation}): React.JSX.Element {
   return (
     <ScrollView
       scrollEnabled={true}
@@ -39,7 +39,11 @@ function Dashboard(backgroundStyle: any): React.JSX.Element {
           readable content of a page when looking at its layout
         </Text>
         <View style={styles.buttonContainer}>
-          <Text style={styles.button}>Check Availability</Text>
+          <Text
+            style={styles.button}
+            onPress={() => navigation.navigate('ProductList')}>
+            Check Availability
+          </Text>
         </View>
       </View>
       {/* // INTESRED SECTONI*/}

@@ -23,14 +23,14 @@ import {displayMessgae} from '../Utils/toast';
 import {useLoading} from '../Utils/loader';
 import Toast from 'react-native-root-toast';
 
-function Login(backgroundStyle: any): React.JSX.Element {
+function Login({navigation}): React.JSX.Element {
   const mutation = loginMutate();
   const {setIsLoading} = useLoading();
   const handleUserSubmit = async (values: {tmc: string; password: string}) => {
     try {
       setIsLoading(true);
       const status = await mutation.mutateAsync(values);
-      console.log('Status:', status); // Log the entire response
+      navigation.navigate('Dashboard');
       displayMessgae({
         message: status.message,
         type: 'SUCCESS',
@@ -49,7 +49,7 @@ function Login(backgroundStyle: any): React.JSX.Element {
   return (
     <ScrollView
       scrollEnabled={true}
-      style={[backgroundStyle, styles.scrollView]}
+      style={[styles.scrollView]}
       contentContainerStyle={styles.contentContainer}>
       <Formik
         initialValues={{
@@ -120,7 +120,6 @@ function Login(backgroundStyle: any): React.JSX.Element {
           </View>
         )}
       </Formik>
-      <Toast />
     </ScrollView>
   );
 }
