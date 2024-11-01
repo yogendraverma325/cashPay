@@ -30,6 +30,7 @@ import ProductList from './android/Screens/ProductList';
 import Profile from './android/Screens/Profile';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Cart from './android/Screens/Cart';
 const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -47,7 +48,12 @@ function App(): React.JSX.Element {
       <QueryClientProvider client={queryClient}>
         <LoadingProvider>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="Login">
+            <Stack.Navigator initialRouteName="Cart">
+              <Stack.Screen
+                name="My Cart"
+                component={Cart}
+                options={{headerShown: true}}
+              />
               <Stack.Screen
                 name="Login"
                 component={Login}
