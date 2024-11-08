@@ -156,11 +156,13 @@ function Cart({navigation}): React.JSX.Element {
       />
       <View style={styles.totalCheckoutContainer}>
         <View style={styles.totalContainer}>
-          <Text>Total</Text>
-          <Text> {'\u20B9'} 1200</Text>
+          <Text style={styles.fontFamilyClass}>Total</Text>
+          <Text style={styles.fontFamilyClass}> {'\u20B9'} 1200</Text>
         </View>
         <View style={styles.checkoutContainer}>
-          <Text style={styles.checkouttext}>Checkout</Text>
+          <Text style={[styles.checkouttext, styles.fontFamilyClass]}>
+            Checkout
+          </Text>
         </View>
       </View>
     </View>
@@ -168,6 +170,9 @@ function Cart({navigation}): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
+  fontFamilyClass: {
+    fontFamily: 'Quicksand-Bold',
+  },
   totalCheckoutContainer: {
     position: 'absolute',
     bottom: 0,
@@ -199,7 +204,7 @@ const styles = StyleSheet.create({
   },
   checkouttext: {
     color: '#fff',
-    fontSize: 20,
+    fontSize: 18,
   },
   mainContainer: {},
   listContainer: {

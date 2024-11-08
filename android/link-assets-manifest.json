@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Quicksand-Bold.otf",
+      "sha1": "ccfc43aa80b53cf2df22f9dca0bc5174f3ee8c27"
+    },
+    {
+      "path": "assets/fonts/Quicksand-BoldItalic.otf",
+      "sha1": "411cf61aaf7a9c638a18355adc2e6857879efce9"
+    },
+    {
+      "path": "assets/fonts/Quicksand-Italic.otf",
+      "sha1": "131ba23d6153b0d63d51de9759b8996c7c693928"
+    },
+    {
+      "path": "assets/fonts/Quicksand-Light.otf",
+      "sha1": "d953e2bcba276dfdee1fb985124cbc59f106e330"
+    },
+    {
+      "path": "assets/fonts/Quicksand-LightItalic.otf",
+      "sha1": "16b9323fddb94ba4f0d902cf54f9db8a701825fd"
+    },
+    {
+      "path": "assets/fonts/Quicksand-Regular.otf",
+      "sha1": "cd44de2b69b723902d81f2a53613b7e94adda1ec"
+    },
+    {
+      "path": "assets/fonts/Quicksand_Dash.otf",
+      "sha1": "06c02e63a27e070c7ca9c4fb34488e3d99e8dc20"
+    }
+  ]
+}
