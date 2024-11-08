@@ -149,11 +149,12 @@ function Cart({navigation}): React.JSX.Element {
   );
   return (
     <View style={styles.mainContainer}>
-      <FlatList
-        data={cartProducts}
-        style={styles.listContainer}
-        renderItem={({item}) => <Item itemData={item} />}
-      />
+      <View style={styles.listContainer}>
+        <FlatList
+          data={cartProducts}
+          renderItem={({item}) => <Item itemData={item} />}
+        />
+      </View>
       <View style={styles.totalCheckoutContainer}>
         <View style={styles.totalContainer}>
           <Text style={styles.fontFamilyClass}>Total</Text>
@@ -174,12 +175,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Quicksand-Bold',
   },
   totalCheckoutContainer: {
-    position: 'absolute',
-    bottom: 0,
     width: '100%',
-    height: 70,
     padding: 16,
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -206,9 +203,13 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
   },
-  mainContainer: {},
+  mainContainer: {
+    flex: 1,
+    flexDirection: 'column',
+  },
   listContainer: {
     backgroundColor: '#fff',
+    height: '90%',
   },
   cardContainer: {
     display: 'flex',
