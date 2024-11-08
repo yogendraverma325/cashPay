@@ -170,33 +170,36 @@ function Cart({navigation}): React.JSX.Element {
 const styles = StyleSheet.create({
   totalCheckoutContainer: {
     position: 'absolute',
-    bottom: 1,
+    bottom: 0,
     width: '100%',
-    height: 100,
+    height: 70,
     padding: 16,
-    backgroundColor: '#fff',
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#FFF',
   },
   totalContainer: {
     width: '50%',
-    height: 60,
-    padding: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center', // centers vertically
+    alignItems: 'center', // centers horizontally
+    height: 50,
   },
   checkoutContainer: {
     width: '50%',
-    height: 60,
+    height: 50,
+    flex: 1,
+    justifyContent: 'center', // centers vertically
+    alignItems: 'center', // centers horizontally,
     backgroundColor: 'orange',
+    borderRadius: 10,
   },
   checkouttext: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     color: '#fff',
-    padding: 20,
+    fontSize: 20,
   },
   mainContainer: {},
   listContainer: {
