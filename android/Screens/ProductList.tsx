@@ -128,15 +128,13 @@ function ProductList({navigation}): React.JSX.Element {
   );
 
   return (
-    <ScrollView
-      scrollEnabled={true}
-      contentContainerStyle={styles.contentContainer}>
+    <View style={styles.contentContainer}>
       <FlatList
         data={imageData}
         style={styles.listContainer}
         renderItem={({item}) => <Item itemData={item} />}
       />
-    </ScrollView>
+    </View>
   );
 }
 

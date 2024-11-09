@@ -12,11 +12,16 @@ const displayMessgae = (values: {message: string; type: string}) => {
   }
   Toast.show(values.message, {
     duration: Toast.durations.LONG,
-    position: Toast.positions.CENTER,
-    backgroundColor: backgroundColor, // Customize background color
-    textColor: 'white', // Customize text color
+    backgroundColor: '#50504e', // Customize background color
+    textColor: '#fff', // Customize text color
+    textStyle: {
+      fontSize: 18,
+      fontWeight: '600',
+    },
     shadow: true,
     animation: true,
+    position: Toast.positions.BOTTOM,
+    hideOnPress: true,
   });
 };
 export {displayMessgae};

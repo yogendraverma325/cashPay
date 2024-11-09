@@ -41,7 +41,12 @@ function Profile({navigation}): React.JSX.Element {
             />
           </View>
           <View style={[styles.likeButtonContainer, styles.shadowbox]}>
-            <Icon name="heart" size={30} color="#fff" />
+            <Icon
+              name="heart"
+              size={30}
+              color="#fff"
+              onPress={() => navigation.navigate('Cart')}
+            />
           </View>
           <View style={[styles.blockButtonContainer, styles.shadowbox]}>
             <Icon name="close" size={30} color="#e67e22" />
