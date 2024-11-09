@@ -55,7 +55,7 @@ function App(): React.JSX.Element {
       <QueryClientProvider client={queryClient}>
         <LoadingProvider>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="Dashboard">
+            <Stack.Navigator initialRouteName="Login">
               <Stack.Screen
                 name="Cart"
                 component={Cart}
