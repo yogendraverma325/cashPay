@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -31,6 +31,7 @@ import Profile from './android/Screens/Profile';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Cart from './android/Screens/Cart';
+import {getStorageData} from './android/Utils/storageProiver';
 const headerStyle = {
   headerShown: true,
   headerStyle: {
@@ -38,8 +39,45 @@ const headerStyle = {
   },
   headerTitleAlign: 'center', // Centers the title
 };
-const Stack = createNativeStackNavigator();
-function App(): React.JSX.Element {
+import {AuthProvider, useAuth} from './android/Utils/authContext';
+const AuthStack = createNativeStackNavigator();
+const AppStack = createNativeStackNavigator();
+
+const AppStackScreen = () => (
+  <AppStack.Navigator initialRouteName="Dashboard">
+    <AppStack.Screen name="Cart" component={Cart} />
+    <AppStack.Screen
+      name="Dashboard"
+      component={Dashboard}
+      options={{headerShown: false}}
+    />
+    <AppStack.Screen name="ProductList" component={ProductList} />
+    <AppStack.Screen name="Profile" component={Profile} />
+  </AppStack.Navigator>
+);
+const AuthStackScreen = () => (
+  <AuthStack.Navigator initialRouteName="Login">
+    <AuthStack.Screen
+      name="Login"
+      component={Login}
+      options={{headerShown: false}}
+    />
+  </AuthStack.Navigator>
+);
+const AppContent = () => {
+  const {isLoggedIn} = useAuth();
+  console.log('isLoggedIn', isLoggedIn);
+  if (isLoggedIn == null) {
+    return null;
+  }
+
+  return (
+    <NavigationContainer>
+      {isLoggedIn ? <AppStackScreen /> : <AuthStackScreen />}
+    </NavigationContainer>
+  );
+};
+function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -54,42 +92,9 @@ function App(): React.JSX.Element {
       />
       <QueryClientProvider client={queryClient}>
         <LoadingProvider>
-          <NavigationContainer>
-            <Stack.Navigator initialRouteName="Login">
-              <Stack.Screen
-                name="Cart"
-                component={Cart}
-                options={{
-                  ...headerStyle,
-                }}
-              />
-              <Stack.Screen
-                name="Login"
-                component={Login}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="Dashboard"
-                component={Dashboard}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="ProductList"
-                component={ProductList}
-                options={{
-                  headerTitle: 'Products',
-                  ...headerStyle,
-                }}
-              />
-              <Stack.Screen
-                name="Profile"
-                component={Profile}
-                options={{
-                  ...headerStyle,
-                }}
-              />
-            </Stack.Navigator>
-          </NavigationContainer>
+          <AuthProvider>
+            <AppContent />
+          </AuthProvider>
           <Toast />
         </LoadingProvider>
       </QueryClientProvider>

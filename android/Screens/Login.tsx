@@ -22,15 +22,20 @@ import {loginMutate} from '../Queries/authQueries';
 import {displayMessgae} from '../Utils/toast';
 import {useLoading} from '../Utils/loader';
 import Toast from 'react-native-root-toast';
+import {setStorageData} from '../Utils/storageProiver';
+import {useAuth} from '../Utils/authContext';
 
 function Login({navigation}): React.JSX.Element {
   const mutation = loginMutate();
   const {setIsLoading} = useLoading();
+  const {login} = useAuth();
   const handleUserSubmit = async (values: {tmc: string; password: string}) => {
     try {
       setIsLoading(true);
       const status = await mutation.mutateAsync(values);
-      navigation.navigate('Dashboard');
+      console.log('storageData', status);
+      await login('NULL');
+      // navigation.replace('Dashboard');
       displayMessgae({
         message: status.message,
         type: 'SUCCESS',

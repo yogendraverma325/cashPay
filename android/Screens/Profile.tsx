@@ -19,7 +19,16 @@ import {
   FlatList,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {removeStorageData} from '../Utils/storageProiver';
+import {useAuth} from '../Utils/authContext';
 function Profile({navigation}): React.JSX.Element {
+  const {logout} = useAuth();
+  const logoutFunc = async () => {
+    try {
+      await logout();
+      // navigation.replace('Login');
+    } catch (e) {}
+  };
   return (
     <View style={styles.mainCard}>
       <View style={styles.imageContainer}>
@@ -49,7 +58,7 @@ function Profile({navigation}): React.JSX.Element {
             />
           </View>
           <View style={[styles.blockButtonContainer, styles.shadowbox]}>
-            <Icon name="close" size={30} color="#e67e22" />
+            <Icon name="close" size={30} color="#e67e22" onPress={logoutFunc} />
           </View>
         </View>
       </View>
