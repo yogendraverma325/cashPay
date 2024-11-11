@@ -35,6 +35,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Cart from './android/Screens/Cart';
 import {getStorageData} from './android/Utils/storageProiver';
+import 'react-native-gesture-handler';
 const headerStyle = {
   headerShown: true,
   headerStyle: {
@@ -43,20 +44,18 @@ const headerStyle = {
   headerTitleAlign: 'center', // Centers the title
 };
 import {AuthProvider, useAuth} from './android/Utils/authContext';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+
 const AuthStack = createNativeStackNavigator();
 const AppStack = createNativeStackNavigator();
-
+const Drawer = createDrawerNavigator();
 const AppStackScreen = () => (
-  <AppStack.Navigator initialRouteName="Dashboard">
-    <AppStack.Screen name="Cart" component={Cart} />
-    <AppStack.Screen
-      name="Dashboard"
-      component={Dashboard}
-      options={{headerShown: false}}
-    />
-    <AppStack.Screen name="ProductList" component={ProductList} />
-    <AppStack.Screen name="Profile" component={Profile} />
-  </AppStack.Navigator>
+  <Drawer.Navigator initialRouteName="Dashboard">
+    <Drawer.Screen name="Cart" component={Cart} />
+    <Drawer.Screen name="Dashboard" component={Dashboard} />
+    <Drawer.Screen name="ProductList" component={ProductList} />
+    <Drawer.Screen name="Profile" component={Profile} />
+  </Drawer.Navigator>
 );
 const AuthStackScreen = () => (
   <AuthStack.Navigator initialRouteName="Login">
