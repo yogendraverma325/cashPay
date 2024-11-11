@@ -22,7 +22,7 @@ const getStorageData = async (key: string) => {
 const removeStorageData = async () => {
   let keys = ['UserToken'];
   try {
-    await AsyncStorage.getAllKeys();
+    await AsyncStorage.removeItem('UserToken');
   } catch (e) {
     // read key error
   }

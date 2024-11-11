@@ -11,6 +11,9 @@ import {
   StatusBar,
   StyleSheet,
   useColorScheme,
+  Text,
+  View,
+  ActivityIndicator,
 } from 'react-native';
 
 import {
@@ -67,7 +70,11 @@ const AuthStackScreen = () => (
 const AppContent = () => {
   const {isLoggedIn} = useAuth();
   if (isLoggedIn == null) {
-    return null;
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#4FD3DA" />
+      </View>
+    );
   }
 
   return (
@@ -104,6 +111,12 @@ function App() {
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
+  },
+  loadingContainer: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Optional background overlay
   },
 });
 

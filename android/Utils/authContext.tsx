@@ -19,7 +19,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({
   useEffect(() => {
     const checkLoginStatus = async () => {
       const userToken = await AsyncStorage.getItem('UserToken');
-      setIsLoggedIn(userToken ? userToken.toString() : null);
+      setIsLoggedIn(userToken ? userToken.toString() : '');
     };
 
     checkLoginStatus();
@@ -32,7 +32,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({
 
   const logout = async () => {
     await removeStorageData();
-    setIsLoggedIn(null);
+    setIsLoggedIn('');
   };
 
   return (
