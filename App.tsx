@@ -66,7 +66,6 @@ const AuthStackScreen = () => (
 );
 const AppContent = () => {
   const {isLoggedIn} = useAuth();
-  console.log('isLoggedIn', isLoggedIn);
   if (isLoggedIn == null) {
     return null;
   }
