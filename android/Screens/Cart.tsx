@@ -181,6 +181,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#FFF',
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
   },
   totalContainer: {
     width: '50%',

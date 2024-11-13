@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -16,13 +16,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Login from './android/Screens/Login';
@@ -34,27 +28,55 @@ import Profile from './android/Screens/Profile';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Cart from './android/Screens/Cart';
-import {getStorageData} from './android/Utils/storageProiver';
 import 'react-native-gesture-handler';
-const headerStyle = {
-  headerShown: true,
-  headerStyle: {
-    backgroundColor: '#4FD3DA',
-  },
-  headerTitleAlign: 'center', // Centers the title
-};
 import {AuthProvider, useAuth} from './android/Utils/authContext';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-
+import CustomDrawer from './android/components/CustomDrawer';
+import Icon from 'react-native-vector-icons/FontAwesome';
 const AuthStack = createNativeStackNavigator();
 const AppStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const AppStackScreen = () => (
-  <Drawer.Navigator initialRouteName="Dashboard">
-    <Drawer.Screen name="Cart" component={Cart} />
-    <Drawer.Screen name="Dashboard" component={Dashboard} />
-    <Drawer.Screen name="ProductList" component={ProductList} />
-    <Drawer.Screen name="Profile" component={Profile} />
+  <Drawer.Navigator
+    initialRouteName="Dashboard"
+    drawerContent={props => <CustomDrawer {...props} />}
+    screenOptions={{
+      drawerLabelStyle: {
+        fontSize: 18,
+        marginLeft: -20,
+      },
+    }}>
+    <Drawer.Screen
+      name="Cart"
+      component={Cart}
+      options={{
+        drawerIcon: ({color}) => (
+          <Icon name="briefcase" size={20} color={color} />
+        ),
+      }}
+    />
+    <Drawer.Screen
+      name="Dashboard"
+      component={Dashboard}
+      options={{
+        drawerIcon: ({color}) => <Icon name="home" size={20} color={color} />,
+      }}
+    />
+    <Drawer.Screen
+      name="ProductList"
+      component={ProductList}
+      options={{
+        drawerLabel: 'Products',
+        drawerIcon: ({color}) => <Icon name="list" size={20} color={color} />,
+      }}
+    />
+    <Drawer.Screen
+      name="Profile"
+      component={Profile}
+      options={{
+        drawerIcon: ({color}) => <Icon name="user" size={20} color={color} />,
+      }}
+    />
   </Drawer.Navigator>
 );
 const AuthStackScreen = () => (
