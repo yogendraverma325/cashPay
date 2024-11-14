@@ -18,95 +18,101 @@ import {
   Image,
 } from 'react-native';
 
+import CustomHeader from '../components/CustomHeader';
+
 function Dashboard({navigation}): React.JSX.Element {
   return (
-    <ScrollView
-      scrollEnabled={true}
-      contentContainerStyle={styles.contentContainer}>
-      <View style={styles.mainCard}>
-        <Image
-          source={{
-            uri: 'https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg',
-          }}
-          resizeMode="cover" // Use 'contain' or 'stretch' as needed
-          style={styles.maincardImage}
-        />
+    <>
+      <CustomHeader />
+      <ScrollView
+        scrollEnabled={true}
+        contentContainerStyle={styles.contentContainer}>
+        <View style={styles.mainCard}>
+          <Image
+            source={{
+              uri: 'https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg',
+            }}
+            resizeMode="cover" // Use 'contain' or 'stretch' as needed
+            style={styles.maincardImage}
+          />
 
-        <Text style={styles.ammenties}>Room 1 Guest 1 Sofa</Text>
-        <Text style={styles.roomPlace}>Single Room in center</Text>
-        <Text style={styles.description}>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout
-        </Text>
-        <View style={styles.buttonContainer}>
-          <Text
-            style={styles.button}
-            onPress={() => navigation.navigate('ProductList')}>
-            Check Availability
+          <Text style={styles.ammenties}>Room 1 Guest 1 Sofa</Text>
+          <Text style={styles.roomPlace}>Single Room in center</Text>
+          <Text style={styles.description}>
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout
           </Text>
-        </View>
-      </View>
-      {/* // INTESRED SECTONI*/}
-      <View style={styles.INTESREDContainer}>
-        <Text style={styles.INTESREDheadingtext}>
-          You May Also be Interested In:
-        </Text>
-        <View style={styles.INTESREDCardList}>
-          <View style={styles.INTESREDCard}>
-            <Image
-              source={{
-                uri: 'https://www.shutterstock.com/image-photo/gateway-india-mumbai-maharashtra-monument-260nw-1936201141.jpg',
-              }}
-              resizeMode="cover" // Use 'contain' or 'stretch' as needed
-              style={styles.INTESREDCardImage}
-            />
-            <Text style={styles.INTESREDCardText}>
-              Mix the sections, change the colors and unleash your creativity
-            </Text>
-          </View>
-          <View style={styles.INTESREDCard}>
-            <Image
-              source={{
-                uri: 'https://media.istockphoto.com/id/1079023316/photo/washintotn-monument-at-sunrise-in-modern-style-washington-dc.jpg?b=1&s=612x612&w=0&k=20&c=093PgUisVqMafskE0wrBCNhb05HsUBJu7OQ-5302qWU=',
-              }}
-              resizeMode="cover" // Use 'contain' or 'stretch' as needed
-              style={styles.INTESREDCardImage}
-            />
-            <Text style={styles.INTESREDCardText}>
-              From buttons, to inputs, navbars, alerts or cards, you are covered
+          <View style={styles.buttonContainer}>
+            <Text
+              style={styles.button}
+              onPress={() => navigation.navigate('ProductList')}>
+              Check Availability
             </Text>
           </View>
         </View>
-        <View style={styles.INTESREDCardList}>
-          <View style={styles.INTESREDCard}>
-            <Image
-              source={{
-                uri: 'https://th.bing.com/th/id/OIG4.hb6x6NsHBTvbDGaD13Ua',
-              }}
-              resizeMode="cover" // Use 'contain' or 'stretch' as needed
-              style={styles.INTESREDCardImage}
-            />
-            <Text style={styles.INTESREDCardText}>
-              Mix the sections, change the colors and unleash your creativity
-            </Text>
+        {/* // INTESRED SECTONI*/}
+        <View style={styles.INTESREDContainer}>
+          <Text style={styles.INTESREDheadingtext}>
+            You May Also be Interested In:
+          </Text>
+          <View style={styles.INTESREDCardList}>
+            <View style={styles.INTESREDCard}>
+              <Image
+                source={{
+                  uri: 'https://www.shutterstock.com/image-photo/gateway-india-mumbai-maharashtra-monument-260nw-1936201141.jpg',
+                }}
+                resizeMode="cover" // Use 'contain' or 'stretch' as needed
+                style={styles.INTESREDCardImage}
+              />
+              <Text style={styles.INTESREDCardText}>
+                Mix the sections, change the colors and unleash your creativity
+              </Text>
+            </View>
+            <View style={styles.INTESREDCard}>
+              <Image
+                source={{
+                  uri: 'https://media.istockphoto.com/id/1079023316/photo/washintotn-monument-at-sunrise-in-modern-style-washington-dc.jpg?b=1&s=612x612&w=0&k=20&c=093PgUisVqMafskE0wrBCNhb05HsUBJu7OQ-5302qWU=',
+                }}
+                resizeMode="cover" // Use 'contain' or 'stretch' as needed
+                style={styles.INTESREDCardImage}
+              />
+              <Text style={styles.INTESREDCardText}>
+                From buttons, to inputs, navbars, alerts or cards, you are
+                covered
+              </Text>
+            </View>
           </View>
-          <View style={styles.INTESREDCard}>
-            <Image
-              source={{
-                uri: 'https://media.istockphoto.com/id/1079023316/photo/washintotn-monument-at-sunrise-in-modern-style-washington-dc.jpg?b=1&s=612x612&w=0&k=20&c=093PgUisVqMafskE0wrBCNhb05HsUBJu7OQ-5302qWU=',
-              }}
-              resizeMode="cover" // Use 'contain' or 'stretch' as needed
-              style={styles.INTESREDCardImage}
-            />
-            <Text style={styles.INTESREDCardText}>
-              From buttons, to inputs, navbars, alerts or cards, you are
-              covered.
-            </Text>
+          <View style={styles.INTESREDCardList}>
+            <View style={styles.INTESREDCard}>
+              <Image
+                source={{
+                  uri: 'https://th.bing.com/th/id/OIG4.hb6x6NsHBTvbDGaD13Ua',
+                }}
+                resizeMode="cover" // Use 'contain' or 'stretch' as needed
+                style={styles.INTESREDCardImage}
+              />
+              <Text style={styles.INTESREDCardText}>
+                Mix the sections, change the colors and unleash your creativity
+              </Text>
+            </View>
+            <View style={styles.INTESREDCard}>
+              <Image
+                source={{
+                  uri: 'https://media.istockphoto.com/id/1079023316/photo/washintotn-monument-at-sunrise-in-modern-style-washington-dc.jpg?b=1&s=612x612&w=0&k=20&c=093PgUisVqMafskE0wrBCNhb05HsUBJu7OQ-5302qWU=',
+                }}
+                resizeMode="cover" // Use 'contain' or 'stretch' as needed
+                style={styles.INTESREDCardImage}
+              />
+              <Text style={styles.INTESREDCardText}>
+                From buttons, to inputs, navbars, alerts or cards, you are
+                covered.
+              </Text>
+            </View>
           </View>
         </View>
-      </View>
-      {/* // INTESRED SECTONI*/}
-    </ScrollView>
+        {/* // INTESRED SECTONI*/}
+      </ScrollView>
+    </>
   );
 }
 

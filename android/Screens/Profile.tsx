@@ -19,88 +19,83 @@ import {
   FlatList,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {removeStorageData} from '../Utils/storageProiver';
-import {useAuth} from '../Utils/authContext';
+import CustomHeader from '../components/CustomHeader';
 function Profile({navigation}): React.JSX.Element {
-  const {logout} = useAuth();
-  const logoutFunc = async () => {
-    try {
-      await logout();
-      // navigation.replace('Login');
-    } catch (e) {}
-  };
   return (
-    <View style={styles.mainCard}>
-      <View style={styles.imageContainer}>
-        <Image
-          source={{
-            uri: 'https://i.pinimg.com/736x/96/1e/ae/961eaee0f65ce00c9f48a46a773c8a7c.jpg',
-          }}
-          style={styles.profileimage}
-        />
-      </View>
-      <View>
-        <View style={styles.buttonContainer}>
-          <View style={[styles.ratingButtonContainer, styles.shadowbox]}>
-            <Icon
-              name="star"
-              size={30}
-              color="#3498db"
-              onPress={() => navigation.navigate('Dashboard')}
-            />
-          </View>
-          <View style={[styles.likeButtonContainer, styles.shadowbox]}>
-            <Icon
-              name="heart"
-              size={30}
-              color="#fff"
-              onPress={() => navigation.navigate('Cart')}
-            />
-          </View>
-          <View style={[styles.blockButtonContainer, styles.shadowbox]}>
-            <Icon name="close" size={30} color="#e67e22" onPress={logoutFunc} />
+    <>
+      <CustomHeader />
+      <View style={styles.mainCard}>
+        <View style={styles.imageContainer}>
+          <Image
+            source={{
+              uri: 'https://i.pinimg.com/736x/96/1e/ae/961eaee0f65ce00c9f48a46a773c8a7c.jpg',
+            }}
+            style={styles.profileimage}
+          />
+        </View>
+        <View>
+          <View style={styles.buttonContainer}>
+            <View style={[styles.ratingButtonContainer, styles.shadowbox]}>
+              <Icon
+                name="star"
+                size={30}
+                color="#3498db"
+                onPress={() => navigation.navigate('Dashboard')}
+              />
+            </View>
+            <View style={[styles.likeButtonContainer, styles.shadowbox]}>
+              <Icon
+                name="heart"
+                size={30}
+                color="#fff"
+                onPress={() => navigation.navigate('Cart')}
+              />
+            </View>
+            <View style={[styles.blockButtonContainer, styles.shadowbox]}>
+              <Icon name="close" size={30} color="#e67e22" />
+            </View>
           </View>
         </View>
-      </View>
-      <View style={styles.profileDetailConainter}>
-        <View style={styles.nameAgeConainter}>
-          <Text style={styles.nameAgeText}>Tanya Singh,25</Text>
-        </View>
-        <Text style={styles.languageText}>Hindi . Punjabi . English</Text>
-
-        <View style={styles.locationBoxConainter}>
-          <View style={styles.locationConainter}>
-            <Text style={styles.locationHeadingText}>Location</Text>
-            <Text style={styles.locationnameText}>Brivai,Mumbai</Text>
+        <View style={styles.profileDetailConainter}>
+          <View style={styles.nameAgeConainter}>
+            <Text style={styles.nameAgeText}>Tanya Singh,25</Text>
           </View>
+          <Text style={styles.languageText}>Hindi . Punjabi . English</Text>
 
-          <View style={styles.locationDistanceConainter}>
-            <View style={styles.locationIcon}>
-              <Icon name="map-marker" size={20} color={'#fff'} />
+          <View style={styles.locationBoxConainter}>
+            <View style={styles.locationConainter}>
+              <Text style={styles.locationHeadingText}>Location</Text>
+              <Text style={styles.locationnameText}>Brivai,Mumbai</Text>
             </View>
 
-            <Text style={styles.distanceText}>1 Km</Text>
+            <View style={styles.locationDistanceConainter}>
+              <View style={styles.locationIcon}>
+                <Icon name="map-marker" size={20} color={'#fff'} />
+              </View>
+
+              <Text style={styles.distanceText}>1 Km</Text>
+            </View>
+          </View>
+
+          <View style={styles.aboutBoxContainer}>
+            <Text style={styles.aboutHeading}>About</Text>
+            <ScrollView style={styles.scrollContainer}>
+              <Text style={styles.aboutText}>
+                Hi, I'm Nisha singh. I have a background in software engineering
+                and specialize in [your skills, e.g., mobile app development,
+                data analysis, etc.]. Over the past [X years], I've worked on
+                [mention any relevant projects, achievements, or experience].
+                I’m particularly passionate about [specific area, e.g., creating
+                intuitive user interfaces, finding insights from data, building
+                scalable backend systems, etc.]. Outside of work, I enjoy
+                [mention hobbies or interests, e.g., hiking, reading, learning
+                new tech, etc.].
+              </Text>
+            </ScrollView>
           </View>
         </View>
-
-        <View style={styles.aboutBoxContainer}>
-          <Text style={styles.aboutHeading}>About</Text>
-          <ScrollView style={styles.scrollContainer}>
-            <Text style={styles.aboutText}>
-              Hi, I'm Nisha singh. I have a background in software engineering
-              and specialize in [your skills, e.g., mobile app development, data
-              analysis, etc.]. Over the past [X years], I've worked on [mention
-              any relevant projects, achievements, or experience]. I’m
-              particularly passionate about [specific area, e.g., creating
-              intuitive user interfaces, finding insights from data, building
-              scalable backend systems, etc.]. Outside of work, I enjoy [mention
-              hobbies or interests, e.g., hiking, reading, learning new tech,
-              etc.].
-            </Text>
-          </ScrollView>
-        </View>
       </View>
-    </View>
+    </>
   );
 }
 

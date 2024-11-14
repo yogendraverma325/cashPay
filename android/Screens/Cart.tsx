@@ -19,6 +19,7 @@ import {
   FlatList,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import CustomHeader from '../components/CustomHeader';
 function Cart({navigation}): React.JSX.Element {
   const cartProducts = [
     {
@@ -149,6 +150,7 @@ function Cart({navigation}): React.JSX.Element {
   );
   return (
     <View style={styles.mainContainer}>
+      <CustomHeader />
       <View style={styles.listContainer}>
         <FlatList
           data={cartProducts}

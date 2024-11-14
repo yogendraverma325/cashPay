@@ -33,9 +33,7 @@ function Login({navigation}): React.JSX.Element {
     try {
       setIsLoading(true);
       const status = await mutation.mutateAsync(values);
-      console.log('storageData', status);
       await login('NULL');
-      // navigation.replace('Dashboard');
       displayMessgae({
         message: status.message,
         type: 'SUCCESS',
@@ -59,7 +57,7 @@ function Login({navigation}): React.JSX.Element {
       <Formik
         initialValues={{
           tmc: '13675',
-          password: 'Yogi@12345',
+          password: 'Teams@123',
         }}
         validationSchema={Yup.object({
           tmc: Yup.string().max(255).required('TMC is required'),

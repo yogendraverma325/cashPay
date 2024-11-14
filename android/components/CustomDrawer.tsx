@@ -12,6 +12,7 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 const CustomDrawer = (props: any) => {
   return (
@@ -19,19 +20,20 @@ const CustomDrawer = (props: any) => {
       <DrawerContentScrollView
         {...props}
         contentContainerStyle={styles.drawerContainer}>
-        <ImageBackground
-          source={require('../assets/images/backGroundImage.jpg')}
-          style={{padding: 20}}>
+        <View
+          style={{padding: 20, alignItems: 'center', justifyContent: 'center'}}>
           <Image
             source={require('../assets/images/profile.png')}
             style={styles.profileImage}
           />
-          <Text style={styles.nameText}>Yogendra Verma</Text>
+          <View>
+            <Text style={styles.nameText}>Yogendra Verma</Text>
+          </View>
           <View style={styles.ratingContianer}>
             <Text style={{fontSize: 15, color: '#fff'}}>280 Coins</Text>
             <Icon name="star" size={15} color="#fff" />
           </View>
-        </ImageBackground>
+        </View>
         <View style={{flex: 1, backgroundColor: '#fff', paddingTop: 10}}>
           <DrawerItemList {...props} />
         </View>
@@ -43,7 +45,7 @@ const CustomDrawer = (props: any) => {
           borderTopColor: '#ccc',
         }}>
         <View style={styles.bottomButtonContainer}>
-          <Icon name="share" color="#4FD3DA" size={20} />
+          <MaterialIcons name="share" size={20} color="#4FD3DA" />
           <Text style={{fontSize: 16}}>Invite A Friend</Text>
         </View>
         <View style={styles.bottomButtonContainer}>
@@ -64,7 +66,11 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginBottom: 10,
   },
-  nameText: {fontSize: 20, fontWeight: 400, color: '#fff'},
+  nameText: {
+    fontSize: 18,
+    fontWeight: 400,
+    color: '#fff',
+  },
   ratingContianer: {
     flexDirection: 'row',
     alignItems: 'center',

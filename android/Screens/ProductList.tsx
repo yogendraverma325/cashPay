@@ -18,6 +18,7 @@ import {
   Image,
   FlatList,
 } from 'react-native';
+import CustomHeader from '../components/CustomHeader';
 
 function ProductList({navigation}): React.JSX.Element {
   const imageData = [
@@ -128,13 +129,16 @@ function ProductList({navigation}): React.JSX.Element {
   );
 
   return (
-    <View style={styles.contentContainer}>
-      <FlatList
-        data={imageData}
-        style={styles.listContainer}
-        renderItem={({item}) => <Item itemData={item} />}
-      />
-    </View>
+    <>
+      <CustomHeader />
+      <View style={styles.contentContainer}>
+        <FlatList
+          data={imageData}
+          style={styles.listContainer}
+          renderItem={({item}) => <Item itemData={item} />}
+        />
+      </View>
+    </>
   );
 }
 

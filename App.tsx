@@ -33,6 +33,7 @@ import {AuthProvider, useAuth} from './android/Utils/authContext';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './android/components/CustomDrawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const AuthStack = createNativeStackNavigator();
 const AppStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -45,6 +46,7 @@ const AppStackScreen = () => (
         fontSize: 18,
         marginLeft: -20,
       },
+      headerShown: false,
     }}>
     <Drawer.Screen
       name="Cart"
