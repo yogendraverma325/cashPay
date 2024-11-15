@@ -19,8 +19,14 @@ import {
   FlatList,
 } from 'react-native';
 import CustomHeader from '../components/CustomHeader';
-
-function ProductList({navigation}): React.JSX.Element {
+import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootApppStackParamList} from '../../App';
+type ProductListProps = NativeStackScreenProps<
+  RootApppStackParamList,
+  'ProductList'
+>;
+function ProductList({navigation}: ProductListProps): React.JSX.Element {
   const imageData = [
     {
       profile:
@@ -145,30 +151,30 @@ function ProductList({navigation}): React.JSX.Element {
 const styles = StyleSheet.create({
   contentContainer: {
     backgroundColor: '#fff',
-    padding: 10,
+    padding: moderateScale(10),
   },
   listContainer: {},
   cardContainer: {
     borderBottomWidth: 0.1,
     elevation: 0.1,
-    marginBottom: 10,
+    marginBottom: verticalScale(10),
   },
   topContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: moderateScale(10),
   },
   profleContainer: {
     flex: 1,
     flexDirection: 'row',
   },
   profileImage: {
-    height: 50,
-    width: 50,
+    height: verticalScale(50),
+    width: scale(50),
     borderRadius: 50,
   },
-  nameUserNameContainer: {padding: 4},
+  nameUserNameContainer: {padding: moderateScale(4)},
   usernameText: {
     fontSize: 13,
   },
@@ -182,8 +188,8 @@ const styles = StyleSheet.create({
   },
   viewButtonText: {fontSize: 15},
   bottomContainer: {
-    padding: 15,
-    gap: 5,
+    padding: moderateScale(15),
+    gap: moderateScale(5),
   },
   timeContainer: {},
   eventDatetimeText: {

@@ -17,11 +17,17 @@ import {
   ActivityIndicator,
   Image,
 } from 'react-native';
+import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 
 import CustomHeader from '../components/CustomHeader';
 import colors from '../theme/color';
-
-function Dashboard({navigation}): React.JSX.Element {
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootApppStackParamList} from '../../App';
+type DashboardProps = NativeStackScreenProps<
+  RootApppStackParamList,
+  'Dashboard'
+>;
+function Dashboard({navigation}: DashboardProps): React.JSX.Element {
   return (
     <>
       <CustomHeader />
@@ -120,49 +126,49 @@ function Dashboard({navigation}): React.JSX.Element {
 const styles = StyleSheet.create({
   INTESREDContainer: {
     flex: 1,
-    paddingHorizontal: 5,
+    paddingHorizontal: moderateScale(5),
   },
   INTESREDheadingtext: {
     fontSize: 20,
     fontWeight: 700,
-    margin: 20,
+    margin: scale(20),
   },
   INTESREDCardList: {
     flex: 1,
     flexDirection: 'row',
     gap: 3,
-    marginBottom: 20,
+    marginBottom: scale(20),
   },
   INTESREDCard: {
     width: '44%',
-    backgroundColor: '#dfe6e9',
+    backgroundColor: colors.TERTIARY,
     borderRadius: 20,
-    marginLeft: 10,
-    marginRight: 10,
-    padding: 10,
+    marginLeft: scale(10),
+    marginRight: scale(10),
+    padding: scale(10),
   },
   INTESREDCardImage: {
-    height: 100,
+    height: verticalScale(100),
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 20,
   },
   INTESREDCardText: {
     fontSize: 14,
-    margin: 8,
+    margin: scale(8),
   },
   contentContainer: {
     backgroundColor: '#ecf0f1',
   },
   mainCard: {
     flex: 1,
-    paddingHorizontal: 20,
+    paddingHorizontal: scale(20),
   },
   maincardImage: {
-    height: 300,
+    height: verticalScale(300),
     borderRadius: 20,
-    marginTop: 20,
-    marginBottom: 10,
+    marginTop: verticalScale(20),
+    marginBottom: verticalScale(10),
   },
   ammenties: {
     fontSize: 15,
@@ -171,8 +177,8 @@ const styles = StyleSheet.create({
   roomPlace: {
     fontSize: 20,
     fontWeight: 700,
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: scale(10),
+    marginBottom: scale(10),
   },
   description: {
     fontSize: 20,
@@ -183,8 +189,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.PRIMARY,
-    height: 40,
-    marginTop: 20,
+    height: verticalScale(40),
+    marginTop: verticalScale(20),
     borderRadius: 12,
   },
   button: {

@@ -24,8 +24,10 @@ import {useLoading} from '../Utils/loader';
 import Toast from 'react-native-root-toast';
 import {setStorageData} from '../Utils/storageProiver';
 import {useAuth} from '../Utils/authContext';
-
-function Login({navigation}): React.JSX.Element {
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootAuthStackParamList} from '../../App';
+type LoginProps = NativeStackScreenProps<RootAuthStackParamList, 'Login'>;
+function Login({navigation}: LoginProps): React.JSX.Element {
   const mutation = loginMutate();
   const {setIsLoading} = useLoading();
   const {login} = useAuth();

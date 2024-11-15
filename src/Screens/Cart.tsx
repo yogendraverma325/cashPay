@@ -21,7 +21,11 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CustomHeader from '../components/CustomHeader';
 import colors from '../theme/color';
-function Cart({navigation}): React.JSX.Element {
+import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootApppStackParamList} from '../../App';
+type CartProps = NativeStackScreenProps<RootApppStackParamList, 'Cart'>;
+function Cart({navigation}: CartProps): React.JSX.Element {
   const cartProducts = [
     {
       id: '1',
@@ -183,9 +187,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#FFF',
+    backgroundColor: colors.TERTIARY,
     borderTopWidth: 1,
-    borderTopColor: '#ccc',
+    borderTopColor: colors.BORDER.TERTIARY,
   },
   totalContainer: {
     width: '50%',
@@ -193,11 +197,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center', // centers vertically
     alignItems: 'center', // centers horizontally
-    height: 50,
+    height: verticalScale(50),
   },
   checkoutContainer: {
     width: '50%',
-    height: 50,
+    height: verticalScale(50),
     flex: 1,
     justifyContent: 'center', // centers vertically
     alignItems: 'center', // centers horizontally,
@@ -219,19 +223,19 @@ const styles = StyleSheet.create({
   cardContainer: {
     display: 'flex',
     flexDirection: 'row',
-    padding: 13,
-    shadowOffset: {width: 0, height: 0},
+    padding: moderateScale(13),
+    shadowOffset: {width: moderateScale(0), height: moderateScale(0)},
     shadowOpacity: 0.1,
     shadowRadius: 1,
     elevation: 1,
     borderColor: '#ddd',
-    margin: 9,
+    margin: moderateScale(9),
   },
   productImageContainer: {},
   productImage: {
     borderRadius: 20,
-    height: 120,
-    width: 120,
+    height: moderateScale(120),
+    width: moderateScale(120),
   },
   titlePriceQtyContainer: {
     gap: 11,
@@ -254,7 +258,7 @@ const styles = StyleSheet.create({
     width: '30%',
     flex: 1,
     flexDirection: 'row',
-    gap: 15,
+    gap: moderateScale(15),
     justifyContent: 'center',
     alignItems: 'center',
   },

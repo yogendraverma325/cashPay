@@ -21,7 +21,11 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CustomHeader from '../components/CustomHeader';
 import colors from '../theme/color';
-function Profile({navigation}): React.JSX.Element {
+import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootApppStackParamList} from '../../App';
+type ProfileProps = NativeStackScreenProps<RootApppStackParamList, 'Profile'>;
+function Profile({navigation}: ProfileProps): React.JSX.Element {
   return (
     <>
       <CustomHeader />
@@ -39,7 +43,7 @@ function Profile({navigation}): React.JSX.Element {
             <View style={[styles.ratingButtonContainer, styles.shadowbox]}>
               <Icon
                 name="star"
-                size={30}
+                size={moderateScale(30)}
                 color={colors.PRIMARY}
                 onPress={() => navigation.navigate('Dashboard')}
               />
@@ -47,13 +51,17 @@ function Profile({navigation}): React.JSX.Element {
             <View style={[styles.likeButtonContainer, styles.shadowbox]}>
               <Icon
                 name="heart"
-                size={30}
+                size={moderateScale(30)}
                 color="#fff"
                 onPress={() => navigation.navigate('Cart')}
               />
             </View>
             <View style={[styles.blockButtonContainer, styles.shadowbox]}>
-              <Icon name="close" size={30} color={colors.PRIMARY} />
+              <Icon
+                name="close"
+                size={moderateScale(30)}
+                color={colors.PRIMARY}
+              />
             </View>
           </View>
         </View>
@@ -71,7 +79,11 @@ function Profile({navigation}): React.JSX.Element {
 
             <View style={styles.locationDistanceConainter}>
               <View style={styles.locationIcon}>
-                <Icon name="map-marker" size={20} color={'#fff'} />
+                <Icon
+                  name="map-marker"
+                  size={moderateScale(20)}
+                  color={'#fff'}
+                />
               </View>
 
               <Text style={styles.distanceText}>1 Km</Text>
@@ -103,7 +115,7 @@ function Profile({navigation}): React.JSX.Element {
 const styles = StyleSheet.create({
   shadowbox: {
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: {width: scale(0), height: verticalScale(2)},
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,
@@ -129,38 +141,38 @@ const styles = StyleSheet.create({
     zIndex: 9,
   },
   ratingButtonContainer: {
-    width: 70,
-    height: 70,
+    width: scale(70),
+    height: verticalScale(70),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
     borderRadius: '50%',
   },
   likeButtonContainer: {
-    width: 90,
-    height: 90,
+    width: scale(90),
+    height: verticalScale(90),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.PRIMARY,
     borderRadius: '50%',
   },
   blockButtonContainer: {
-    width: 70,
-    height: 70,
+    width: scale(70),
+    height: verticalScale(70),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.TERTIARY,
     borderRadius: '50%',
   },
   profileDetailConainter: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.TERTIARY,
     borderTopLeftRadius: '10%',
     borderTopRightRadius: '10%',
-    padding: 20,
-    marginTop: -40,
+    padding: moderateScale(20),
+    marginTop: verticalScale(-40),
   },
   nameAgeConainter: {
-    marginTop: 50,
+    marginTop: verticalScale(50),
   },
   nameAgeText: {
     fontSize: 20,
@@ -173,11 +185,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 10,
+    marginTop: verticalScale(20),
+    marginBottom: verticalScale(10),
   },
   locationConainter: {
-    height: 50,
+    height: verticalScale(50),
   },
   locationHeadingText: {
     fontSize: 20,
@@ -190,25 +202,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.PRIMARY,
     opacity: 0.9,
-    padding: 7,
+    padding: moderateScale(7),
     borderRadius: '10%',
   },
   locationIcon: {
-    width: 15,
+    width: scale(15),
   },
   distanceText: {
-    color: '#fff',
-    width: 40,
+    color: colors.TEXT.TERTIARY,
+    width: scale(40),
   },
   aboutBoxContainer: {},
   scrollContainer: {
-    maxHeight: 150, // adjust height as needed
+    maxHeight: moderateScale(150), // adjust height as needed
   },
   aboutHeading: {
     fontSize: 20,
     fontWeight: 700,
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: verticalScale(20),
+    marginBottom: verticalScale(20),
   },
   aboutText: {
     fontSize: 15,

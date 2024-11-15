@@ -1,15 +1,16 @@
 const colors = {
-  PRIMARY: '#4FD3DA',
-  SECONDARY: '#000000',
+  PRIMARY: '#FC766AFF',
+  SECONDARY: '#5B84B1FF',
+  TERTIARY: '#FFF',
   TEXT: {
-    PRIMARY: '#FFF',
-    SECONDARY: '#ccc',
-    LAST: '#000000',
+    PRIMARY: '#FC766AFF',
+    SECONDARY: '#5B84B1FF',
+    TERTIARY: '#FFF',
   },
   BORDER: {
-    PRIMARY: '#FFF',
-    SECONDARY: '#ccc',
-    LAST: '#000000',
+    PRIMARY: '#FC766AFF',
+    SECONDARY: '#5B84B1FF',
+    TERTIARY: '#FFF',
   },
 };
 export default colors;

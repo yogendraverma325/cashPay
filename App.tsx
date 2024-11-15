@@ -35,10 +35,18 @@ import CustomDrawer from './src/components/CustomDrawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import io from 'socket.io-client';
+export type RootAuthStackParamList = {
+  Login: undefined;
+};
+export type RootApppStackParamList = {
+  Dashboard: undefined;
+  Cart: undefined;
+  ProductList: undefined;
+  Profile: undefined;
+};
+const AuthStack = createNativeStackNavigator<RootAuthStackParamList>();
+const Drawer = createDrawerNavigator<RootApppStackParamList>();
 
-const AuthStack = createNativeStackNavigator();
-const AppStack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
 const AppStackScreen = () => (
   <Drawer.Navigator
     initialRouteName="Dashboard"
@@ -83,6 +91,7 @@ const AppStackScreen = () => (
     />
   </Drawer.Navigator>
 );
+
 const AuthStackScreen = () => (
   <AuthStack.Navigator initialRouteName="Login">
     <AuthStack.Screen
@@ -109,26 +118,26 @@ const AppContent = () => {
   );
 };
 function App() {
-  useEffect(() => {
-    const socket = io('https://cbvsqd2f-3000.inc1.devtunnels.ms', {
-      transports: ['websocket'], // Ensures WebSocket transport is used
-    });
+  // useEffect(() => {
+  //   const socket = io('https://cbvsqd2f-3000.inc1.devtunnels.ms', {
+  //     transports: ['websocket'], // Ensures WebSocket transport is used
+  //   });
 
-    socket.on('connect', () => {
-      console.log('Connected to Socket.IO server');
-    });
-    socket.on('livequestion', message => {
-      console.log('Received message:', message);
-    });
+  //   socket.on('connect', () => {
+  //     console.log('Connected to Socket.IO server');
+  //   });
+  //   socket.on('livequestion', message => {
+  //     console.log('Received message:', message);
+  //   });
 
-    // Event: Handle disconnection
-    socket.on('disconnect', () => {
-      console.log('Disconnected from Socket.IO server');
-    });
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
+  //   // Event: Handle disconnection
+  //   socket.on('disconnect', () => {
+  //     console.log('Disconnected from Socket.IO server');
+  //   });
+  //   return () => {
+  //     socket.disconnect();
+  //   };
+  // }, []);
 
   const isDarkMode = useColorScheme() === 'dark';
 
