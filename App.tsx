@@ -19,19 +19,19 @@ import {
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Login from './android/Screens/Login';
-import {LoadingProvider} from './android/Utils/loader';
+import Login from './src/Screens/Login';
+import {LoadingProvider} from './src/Utils/loader';
 import Toast from 'react-native-root-toast';
-import Dashboard from './android/Screens/Dashboard';
-import ProductList from './android/Screens/ProductList';
-import Profile from './android/Screens/Profile';
+import Dashboard from './src/Screens/Dashboard';
+import ProductList from './src/Screens/ProductList';
+import Profile from './src/Screens/Profile';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Cart from './android/Screens/Cart';
+import Cart from './src/Screens/Cart';
 import 'react-native-gesture-handler';
-import {AuthProvider, useAuth} from './android/Utils/authContext';
+import {AuthProvider, useAuth} from './src/Utils/authContext';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import CustomDrawer from './android/components/CustomDrawer';
+import CustomDrawer from './src/components/CustomDrawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const AuthStack = createNativeStackNavigator();

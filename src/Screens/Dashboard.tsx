@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 
 import CustomHeader from '../components/CustomHeader';
+import colors from '../theme/color';
 
 function Dashboard({navigation}): React.JSX.Element {
   return (
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FF0080',
+    backgroundColor: colors.PRIMARY,
     height: 40,
     marginTop: 20,
     borderRadius: 12,

@@ -20,6 +20,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CustomHeader from '../components/CustomHeader';
+import colors from '../theme/color';
 function Profile({navigation}): React.JSX.Element {
   return (
     <>
@@ -39,7 +40,7 @@ function Profile({navigation}): React.JSX.Element {
               <Icon
                 name="star"
                 size={30}
-                color="#3498db"
+                color={colors.PRIMARY}
                 onPress={() => navigation.navigate('Dashboard')}
               />
             </View>
@@ -52,7 +53,7 @@ function Profile({navigation}): React.JSX.Element {
               />
             </View>
             <View style={[styles.blockButtonContainer, styles.shadowbox]}>
-              <Icon name="close" size={30} color="#e67e22" />
+              <Icon name="close" size={30} color={colors.PRIMARY} />
             </View>
           </View>
         </View>
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
     height: 90,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#e74c3c',
+    backgroundColor: colors.PRIMARY,
     borderRadius: '50%',
   },
   blockButtonContainer: {
@@ -187,7 +188,7 @@ const styles = StyleSheet.create({
   locationDistanceConainter: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 0, 0, 0.5)',
+    backgroundColor: colors.PRIMARY,
     opacity: 0.9,
     padding: 7,
     borderRadius: '10%',

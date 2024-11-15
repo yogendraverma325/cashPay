@@ -14,6 +14,7 @@ import {
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import colors from '../theme/color';
 const CustomDrawer = (props: any) => {
   return (
     <View style={{flex: 1}}>
@@ -42,14 +43,14 @@ const CustomDrawer = (props: any) => {
         style={{
           padding: 5,
           borderTopWidth: 2,
-          borderTopColor: '#ccc',
+          borderTopColor: colors.BORDER.SECONDARY,
         }}>
         <View style={styles.bottomButtonContainer}>
-          <MaterialIcons name="share" size={20} color="#4FD3DA" />
+          <MaterialIcons name="share" size={20} color={colors.PRIMARY} />
           <Text style={{fontSize: 16}}>Invite A Friend</Text>
         </View>
         <View style={styles.bottomButtonContainer}>
-          <Icon name="gear" color="#4FD3DA" size={20} />
+          <Icon name="gear" color={colors.PRIMARY} size={20} />
           <Text style={{fontSize: 16}}>Setting</Text>
         </View>
       </View>
@@ -58,7 +59,7 @@ const CustomDrawer = (props: any) => {
 };
 const styles = StyleSheet.create({
   drawerContainer: {
-    backgroundColor: '#4FD3DA',
+    backgroundColor: colors.PRIMARY,
   },
   profileImage: {
     height: 60,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
   nameText: {
     fontSize: 18,
     fontWeight: 400,
-    color: '#fff',
+    color: colors.TEXT.PRIMARY,
   },
   ratingContianer: {
     flexDirection: 'row',

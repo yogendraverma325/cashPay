@@ -4,6 +4,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useAuth} from '../Utils/authContext';
 import {useNavigation} from '@react-navigation/native';
+import colors from '../theme/color';
 const CustomHeader = (props: any) => {
   const {logout} = useAuth();
   const navigation = useNavigation();
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.2,
   },
   headerIcon: {
-    color: '#4FD3DA',
+    color: colors.PRIMARY,
     marginHorizontal: 10,
   },
 });

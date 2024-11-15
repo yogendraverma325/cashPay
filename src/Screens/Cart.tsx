@@ -20,6 +20,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CustomHeader from '../components/CustomHeader';
+import colors from '../theme/color';
 function Cart({navigation}): React.JSX.Element {
   const cartProducts = [
     {
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center', // centers vertically
     alignItems: 'center', // centers horizontally,
-    backgroundColor: 'orange',
+    backgroundColor: colors.PRIMARY,
     borderRadius: 10,
   },
   checkouttext: {
@@ -213,7 +214,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     backgroundColor: '#fff',
-    height: '90%',
+    height: '85%',
   },
   cardContainer: {
     display: 'flex',
