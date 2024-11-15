@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -34,6 +34,8 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './src/components/CustomDrawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import io from 'socket.io-client';
+
 const AuthStack = createNativeStackNavigator();
 const AppStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -107,6 +109,27 @@ const AppContent = () => {
   );
 };
 function App() {
+  useEffect(() => {
+    const socket = io('https://cbvsqd2f-3000.inc1.devtunnels.ms', {
+      transports: ['websocket'], // Ensures WebSocket transport is used
+    });
+
+    socket.on('connect', () => {
+      console.log('Connected to Socket.IO server');
+    });
+    socket.on('livequestion', message => {
+      console.log('Received message:', message);
+    });
+
+    // Event: Handle disconnection
+    socket.on('disconnect', () => {
+      console.log('Disconnected from Socket.IO server');
+    });
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
