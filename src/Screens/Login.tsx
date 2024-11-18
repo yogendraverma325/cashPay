@@ -37,18 +37,18 @@ function Login({navigation}: LoginProps): React.JSX.Element {
   const handleUserSubmit = async (values: {tmc: string; password: string}) => {
     try {
       setIsLoading(true);
-      const status = await mutation.mutateAsync(values);
-      await login('NULL');
+      const response = await mutation.mutateAsync(values);
+      await login(response?.data?.tokens);
       displayMessgae({
-        message: status.message,
+        message: response.message,
         type: 'SUCCESS',
       });
     } catch (err: any) {
-      console.error('Error:', err); // Log error details
       displayMessgae({
         message: err.message,
         type: 'ERROR',
       });
+      setIsLoading(false);
     } finally {
       setIsLoading(false);
     }
@@ -61,8 +61,8 @@ function Login({navigation}: LoginProps): React.JSX.Element {
       contentContainerStyle={styles.contentContainer}>
       <Formik
         initialValues={{
-          tmc: '13675',
-          password: 'Teams@123',
+          tmc: 'yogi325',
+          password: 'Test@123',
         }}
         validationSchema={Yup.object({
           tmc: Yup.string().max(255).required('TMC is required'),
