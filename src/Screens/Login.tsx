@@ -26,6 +26,9 @@ import {setStorageData} from '../Utils/storageProiver';
 import {useAuth} from '../Utils/authContext';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootAuthStackParamList} from '../../App';
+import {moderateVerticalScale} from 'react-native-size-matters';
+import colors from '../theme/color';
+import fonts from '../theme/font';
 type LoginProps = NativeStackScreenProps<RootAuthStackParamList, 'Login'>;
 function Login({navigation}: LoginProps): React.JSX.Element {
   const mutation = loginMutate();
@@ -79,7 +82,7 @@ function Login({navigation}: LoginProps): React.JSX.Element {
           /* and other goodies */
         }) => (
           <View style={styles.formContainer}>
-            <Text style={styles.title}>Welcome Back</Text>
+            <Text style={styles.title}>Hey Login Now !</Text>
             <View style={styles.input}>
               <TextInput
                 style={styles.inputText}
@@ -108,6 +111,13 @@ function Login({navigation}: LoginProps): React.JSX.Element {
                 <Text style={styles.errorText}>{errors.password}</Text>
               )}
             </View>
+            <View
+              style={{
+                alignSelf: 'flex-end',
+                marginBottom: moderateVerticalScale(15),
+              }}>
+              <Text>Forgot Password?</Text>
+            </View>
 
             <TouchableOpacity
               style={styles.loginButton}
@@ -115,6 +125,13 @@ function Login({navigation}: LoginProps): React.JSX.Element {
               disabled={mutation.isPending}>
               <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
+
+            <View
+              style={{
+                marginBottom: moderateVerticalScale(15),
+              }}>
+              <Text>Create An Account?</Text>
+            </View>
             {mutation.isPending ? (
               <>
                 <View style={styles.loadingcontainer}>
@@ -140,20 +157,20 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 10,
-    backgroundColor: '#4FD3DA',
+    paddingHorizontal: moderateVerticalScale(10),
+    backgroundColor: colors.PRIMARY,
   },
   formContainer: {
     width: '100%',
     height: '95%',
     alignItems: 'center',
     backgroundColor: 'white',
-    padding: 10,
+    padding: moderateVerticalScale(15),
     borderRadius: 20,
     shadowColor: 'black',
     shadowOffset: {
-      width: 1,
-      height: 7,
+      width: moderateVerticalScale(1),
+      height: moderateVerticalScale(7),
     },
     shadowOpacity: 1,
     shadowRadius: 4,
@@ -161,41 +178,41 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: fonts.SIZE.PRIMARY,
     color: 'balck',
-    marginBottom: 50,
-    marginTop: 50,
+    marginBottom: moderateVerticalScale(50),
+    marginTop: moderateVerticalScale(50),
   },
   input: {
     width: '100%',
-    backgroundColor: '#ecf0f1',
+    backgroundColor: colors.BASE,
     borderRadius: 30,
-    height: 50,
-    marginBottom: 25,
+    height: moderateVerticalScale(50),
+    marginBottom: moderateVerticalScale(25),
     justifyContent: 'center',
-    padding: 20,
+    padding: moderateVerticalScale(20),
   },
   inputText: {
-    height: 50,
-    color: 'black',
+    height: moderateVerticalScale(40),
+    color: colors.TEXT.BASE,
   },
   loginButton: {
-    backgroundColor: '#4FD3DA', // Button background color
+    backgroundColor: colors.PRIMARY, // Button background color
     borderRadius: 30,
-    height: 50,
+    height: moderateVerticalScale(40),
     width: '80%', // Width of the button
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
   },
   buttonText: {
-    color: 'white', // Text color
+    color: colors.TEXT.TERTIARY, // Text color
     fontWeight: '500',
-    fontSize: 20,
+    fontSize: fonts.SIZE.SECONDARY,
   },
   errorText: {
     color: 'red',
-    fontSize: 10,
+    fontSize: fonts.SIZE.TERTIARY,
   }, // Error message style
   loadingcontainer: {
     ...StyleSheet.absoluteFillObject, // Covers the entire screen

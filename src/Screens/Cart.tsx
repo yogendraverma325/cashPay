@@ -21,6 +21,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CustomHeader from '../components/CustomHeader';
 import colors from '../theme/color';
+import fonts from '../theme/font';
 import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootApppStackParamList} from '../../App';
@@ -179,11 +180,11 @@ function Cart({navigation}: CartProps): React.JSX.Element {
 
 const styles = StyleSheet.create({
   fontFamilyClass: {
-    fontFamily: 'Quicksand-Bold',
+    fontFamily: fonts.FAMILY.PRIMARY,
   },
   totalCheckoutContainer: {
     width: '100%',
-    padding: 16,
+    padding: scale(5),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -209,15 +210,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   checkouttext: {
-    color: '#fff',
-    fontSize: 18,
+    color: colors.TEXT.TERTIARY,
+    fontSize: fonts.SIZE.SECONDARY,
   },
   mainContainer: {
     flex: 1,
     flexDirection: 'column',
   },
   listContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.TERTIARY,
     height: '85%',
   },
   cardContainer: {
@@ -234,12 +235,12 @@ const styles = StyleSheet.create({
   productImageContainer: {},
   productImage: {
     borderRadius: 20,
-    height: moderateScale(120),
-    width: moderateScale(120),
+    height: moderateScale(100),
+    width: moderateScale(100),
   },
   titlePriceQtyContainer: {
-    gap: 11,
-    marginLeft: 15,
+    gap: moderateScale(11),
+    marginLeft: moderateScale(15),
     flex: 1,
     flexDirection: 'column',
   },
@@ -263,10 +264,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 15,
+    fontSize: fonts.SIZE.TERTIARY,
   },
   price: {
-    fontSize: 20,
+    fontSize: fonts.SIZE.TERTIARY,
   },
   plusMinus: {},
 });

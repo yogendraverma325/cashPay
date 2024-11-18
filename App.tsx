@@ -49,7 +49,7 @@ const Drawer = createDrawerNavigator<RootApppStackParamList>();
 
 const AppStackScreen = () => (
   <Drawer.Navigator
-    initialRouteName="Dashboard"
+    initialRouteName="Cart"
     drawerContent={props => <CustomDrawer {...props} />}
     screenOptions={{
       drawerLabelStyle: {
